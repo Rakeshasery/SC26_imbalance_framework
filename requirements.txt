@@ -1,0 +1,11 @@
+# SC26 Imbalance Framework — Core Requirements
+# For A2 (Standalone_Mode9.py) and A3 (Unified_Pipeline.py)
+# CPU-only, no GPU needed
+# Install: pip install -r requirements.txt
+
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+scikit-learn>=1.3
+seaborn>=0.12
