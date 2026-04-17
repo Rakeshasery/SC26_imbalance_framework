@@ -1,0 +1,21 @@
+# SC26 Imbalance Framework — Full GPU Requirements
+# For A1 (DATA_Collection.py + RUN_Batch.py)
+# Requires: CUDA 12.x, NVIDIA driver 535+, Linux
+#
+# Step 1 — Install PyTorch with CUDA 12.x support first:
+#   pip install torch>=2.1 --index-url https://download.pytorch.org/whl/cu121
+#
+# Step 2 — Then install this file:
+#   pip install -r requirements_gpu.txt
+
+# Core (same as requirements.txt)
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+scikit-learn>=1.3
+seaborn>=0.12
+
+# GPU-specific (A1 only)
+pynvml>=11.5
+torch>=2.1
