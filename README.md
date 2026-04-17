@@ -1,7 +1,7 @@
 # SC26_imbalance_framework
 
 Artifact repository for the SC26 2026 paper:
-**"[Hardware-Consistent GPU Imbalance Sensitivity: Cross-Node Validation for Energy-Efficient HPC]"**
+**"[Your Paper Title — withheld for double-anonymous review]"**
 
 ---
 
@@ -17,6 +17,12 @@ Artifact repository for the SC26 2026 paper:
 > (see **Pre-collected Dataset** section below). Reviewers should download
 > this dataset and execute **only A2 and A3**, which are CPU-only and
 > complete in approximately **10–20 minutes total**.
+>
+> **Setup in one step:** Unzip `SC26_data.zip` and place all `.py` files
+> (`Standalone_Mode9.py`, `Unified_Pipeline.py`, `DATA_Collection.py`,
+> `RUN_Batch.py`) and `requirements.txt` directly inside the unzipped
+> `SC26_data/` folder. Then install requirements and run A2 and A3 from
+> that folder — no path configuration needed.
 
 ---
 
@@ -39,30 +45,39 @@ Logical pipeline: A1 → A2 → A3.
 
 **Total time: approximately 10–20 minutes. No GPU required.**
 
-### Step 1 — Download the pre-collected dataset (~2 min)
+### Step 1 — Download and set up in one folder (~3 min)
 
 Download `SC26_data.zip` from:
 
 > **Dataset DOI:** `TBD` *(withheld for double-anonymous review)*
 > Direct link: `[Zenodo restricted share link — provided in AD appendix]`
 
-Unzip it into the repository root:
+Unzip it:
 
 ```bash
 unzip SC26_data.zip
 ```
 
-Verify the structure:
+**Place all `.py` files and `requirements.txt` inside the unzipped
+`SC26_data/` folder.** Your folder should look like this:
+
+```
+SC26_data/
+├── Standalone_Mode9.py       ← A2 — place here
+├── Unified_Pipeline.py       ← A3 — place here
+├── DATA_Collection.py        ← A1 — place here (reference only)
+├── RUN_Batch.py              ← A1 — place here (reference only)
+├── requirements.txt          ← place here
+├── r04gn01/
+│   ├── S00.csv ... S29.csv
+│   └── *.json
+├── r04gn02/ ... r05gn06/    (12 node folders total)
+```
+
+Then change into that folder:
 
 ```bash
-ls SC26_data/
-# Expected: r04gn01/  r04gn02/  ...  r05gn06/  (12 node folders)
-
-ls SC26_data/r04gn01/
-# Expected: S00.csv  S01.csv  ...  S29.csv  (30 scenario files per node)
-#           step1_rebalancing_summary_*.json
-#           step3_statistical_validation_*.json
-#           step5_economic_projections_*.json
+cd SC26_data
 ```
 
 ### Step 2 — Install dependencies (~2 min)
@@ -71,18 +86,22 @@ ls SC26_data/r04gn01/
 pip install -r requirements.txt
 ```
 
-### Step 3 — Run A2: Multi-node cross-validation (~2–5 min)
+### Step 3 — Run A2 with a single click or command (~2–5 min)
 
 ```bash
 python Standalone_Mode9.py
 ```
 
+> **Single click:** In any file manager or IDE (VS Code, PyCharm, Spyder),
+> right-click `Standalone_Mode9.py` inside the `SC26_data/` folder and
+> select **"Run"** or **"Execute"**. No arguments or configuration needed.
+
 What this does:
-- Auto-discovers all 12 node folders inside `SC26_data/`
+- Auto-discovers all 12 node folders inside the current directory
 - Reads `S*.csv` scenario files from each node
 - Performs per-node OLS regression + bootstrap (n=2000)
 - Runs pairwise t-tests and one-way ANOVA across all nodes
-- Writes results to `SC26_data/Multinode/`
+- Writes results to `Multinode/` inside the current folder
 
 Expected output files in `SC26_data/Multinode/`:
 ```
@@ -94,11 +113,16 @@ figure_slope_comparison_*.png
 figure_r2_comparison_*.png
 ```
 
-### Step 4 — Run A3: Full analysis pipeline (~5–10 min)
+### Step 4 — Run A3 with a single click or command (~5–10 min)
 
 ```bash
 python Unified_Pipeline.py
 ```
+
+> **Single click:** Right-click `Unified_Pipeline.py` inside the
+> `SC26_data/` folder and select **"Run"** or **"Execute"**. No arguments
+> or configuration needed — it auto-discovers all node folders and the
+> `Multinode/` JSON from A2 automatically.
 
 What this does:
 - Auto-discovers all node folders and their `S*.csv` files
@@ -106,11 +130,11 @@ What this does:
   all_metrics, all_validate, all_economic)
 - Generates ALL paper figures, tables, and statistical summaries
 
-Expected output locations:
+Expected output locations inside `SC26_data/`:
 ```
-Results_Figure/<node>/          ← per-node results (Steps 1–3)
+Results_Figure/<node>/              ← per-node results (Steps 1–3)
 Multinode/Results_Figure_All_Node/  ← all-nodes pooled results (Steps 5–7)
-Multinode/                      ← cross-node results (Step 4, from A2 JSON)
+Multinode/                          ← cross-node results (Step 4)
 ```
 
 ---
@@ -352,7 +376,7 @@ MIT License. See `LICENSE` for details.
 
 ```bibtex
 @inproceedings{anonymous2026sc26,
-  title     = {[Hardware-Consistent GPU Imbalance Sensitivity: Cross-Node Validation for Energy-Efficient HPC]},
+  title     = {[Title withheld for double-anonymous review]},
   author    = {Anonymous},
   booktitle = {Proceedings of the International Conference for
                High Performance Computing, Networking, Storage
