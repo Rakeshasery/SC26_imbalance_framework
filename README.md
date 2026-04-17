@@ -1,7 +1,7 @@
 # SC26_imbalance_framework
 
 Artifact repository for the SC26 2026 paper:
-**"[Hardware-Consistent GPU Imbalance Sensitivity:Cross-Node Validation for Energy-Efficient HPC]"**
+**"Hardware-Consistent GPU Imbalance Sensitivity:Cross-Node Validation for Energy-Efficient HPC"**
 
 ---
 
@@ -376,7 +376,7 @@ MIT License. See `LICENSE` for details.
 
 ```bibtex
 @inproceedings{anonymous2026sc26,
-  title     = {[Hardware-Consistent GPU Imbalance Sensitivity:Cross-Node Validation for Energy-Efficient HPC]},
+  title     = {Hardware-Consistent GPU Imbalance Sensitivity:Cross-Node Validation for Energy-Efficient HPC},
   author    = {Anonymous},
   booktitle = {Proceedings of the International Conference for
                High Performance Computing, Networking, Storage
