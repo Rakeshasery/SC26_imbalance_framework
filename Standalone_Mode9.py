@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ================================================================================
 SC26 STANDALONE MODE 9 — Multi-Node Cross-Validation
