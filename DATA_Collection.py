@@ -3,8 +3,8 @@
 # GPU LOAD IMBALANCE CHARACTERIZATION FRAMEWORK FOR SC26
 ################################################################################
 #
-# Title: GPU Load Imbalance Characterization and Economic Impact Analysis
-#        for Energy-Efficient HPC Clusters
+# Title: Hardware-Consistent GPU Imbalance Sensitivity:Cross-Node Validation 
+#        for Energy-Efficient HPC
 #
 # Conference: SC26 — International Conference for High Performance Computing,
 #             Networking, Storage, and Analysis (April 2026)
@@ -134,7 +134,6 @@
 #
 ################################################################################
 """
-
 import os
 import sys
 import csv
@@ -950,7 +949,6 @@ def run_controlled_rebalancing_experiment(
     }
     return results
 
-
 def _parse_experiment_csv(csv_path: str) -> Tuple[List, List, List, List]:
     """
     Parse a GPUMetricsLogger CSV file and return per-sample arrays
@@ -979,7 +977,6 @@ def _parse_experiment_csv(csv_path: str) -> Tuple[List, List, List, List]:
     except Exception as e:
         print(f"  ⚠  CSV parse error ({csv_path}): {e}")
     return cv_list, eff_list, pwr_list, energy_list
-
 
 # ==============================================================================
 # STEP 6 (cont.): ADAPTIVE SAMPLING EVALUATION RUNNER
@@ -2636,7 +2633,6 @@ def _find_mode1_csv(node_name: str) -> str | None:
             return matches[-1]   # most recent by filename/timestamp sort
     return None
 
-
 def _load_node_csv(node_name: str, csv_path: str) -> dict:
     """
     Load a Mode 1 CSV and return the arrays + summary stats needed
@@ -3613,7 +3609,6 @@ def demo_all_enhancements():
     
     print("\n" + "="*80)
 
-
 # ==============================================================================
 # INTERACTIVE MENU SYSTEM
 # ==============================================================================
@@ -3728,7 +3723,6 @@ def main():
         print("\n\n  👋 Interrupted by user\n")
         sys.exit(0)
 
-
 # ── Mode Functions ────────────────────────────────────────────────────────────
 
 def run_mode_1():
@@ -3830,7 +3824,6 @@ def run_mode_5():
     print(f"  ✓ CV reduction:    {results['improvement']['cv_reduction_pct']:+.1f}%")
     return_to_menu()
 
-
 def run_mode_6():
     """Mode 6 — Step 6: Adaptive Sampling Evaluation."""
     print("\n" + "=" * 100)
@@ -3879,7 +3872,6 @@ def run_mode_6():
     print(f"\n  ✓ Volume reduction:  {cmp.get('volume_reduction_pct', 0):.1f}%")
     print(f"  ✓ Slope error:       {cmp.get('slope_error_pct', 0):.2f}%")
     return_to_menu()
-
 
 def run_mode_7():
     """Mode 7 — Step 3: Enhanced Statistical Validation."""
@@ -3966,7 +3958,6 @@ def run_mode_7():
     print(f"\n  ✓ Results saved: {summary_file}")
     return_to_menu()
 
-
 def run_mode_8():
     """Mode 8 — Step 1+: CV-Aware Paired Rebalancing Experiment (S28 extreme)."""
     print("\n" + "=" * 100)
@@ -4001,7 +3992,6 @@ def run_mode_8():
     print(f"\n  ✓ Energy reduction:  {results['improvement']['energy_reduction_pct']:+.1f}%")
     print(f"  ✓ Efficiency gain:   {results['improvement']['efficiency_gain_pct']:+.1f}%")
     return_to_menu()
-
 
 def run_mode_9():
     """Mode 9 — Multi-Node Cross-Validation (S*.csv preferred; mode1 fallback with guard)."""
@@ -4157,7 +4147,6 @@ def run_mode_10():
     print(f"\n  ✓ Economic projections saved: {summary_file}")
     return_to_menu()
 
-
 def run_mode_11():
     """Mode 11 — Step 4: Scheduler Integration Guide."""
     print("\n" + "=" * 100)
@@ -4209,7 +4198,6 @@ def run_mode_11():
         f.write(policy.slurm_epilog_template())
     print(f"\n  ✓ SLURM epilog template saved: {slurm_file}")
     return_to_menu()
-
 
 def run_mode1_monitoring_enhanced(duration, node_name):
     """
@@ -4347,7 +4335,6 @@ def run_mode_2():
     print(f"\n  ✓ Data saved: {output}")
     return_to_menu()
 
-
 def run_mode_3():
     """Mode 3: Quick validation study."""
     print("\n" + "=" * 100)
@@ -4364,7 +4351,6 @@ def run_mode_3():
     results = run_quick_validation_study()
     print(f"\n  ✓ Generated {len(results)} datasets in {OUTPUT_DIR}")
     return_to_menu()
-
 
 def run_mode_4():
     """Mode 4: Complete publication study."""
@@ -4390,7 +4376,6 @@ def run_mode_4():
     results = run_complete_publication_study()
     print(f"\n  ✓ Complete! Generated {len(results)} datasets")
     return_to_menu()
-
 
 def list_scenarios():
     """List all 30 scenarios organized by category."""
@@ -4420,7 +4405,6 @@ def list_scenarios():
     print(f"  Total: {len(PUBLICATION_SCENARIOS)} scenarios")
     print(f"  Coverage: {8} categories")
     print("=" * 100)
-
 
 def show_system_info():
     """Display GPU system information."""
@@ -4455,7 +4439,6 @@ def show_system_info():
     print(f"  Python version: {sys.version.split()[0]}")
     print("=" * 100)
 
-
 def return_to_menu():
     """Return to main menu."""
     choice = input("\n  Press Enter to return to menu (or 'q' to quit): ").lower()
@@ -4464,11 +4447,9 @@ def return_to_menu():
         sys.exit(0)
     main()
 
-
 # ==============================================================================
 # ENTRY POINT
 # ==============================================================================
-
 if __name__ == "__main__":
     print("\n" + "=" * 100)
     print("  Loading GPU Load Imbalance Characterization Framework...")
