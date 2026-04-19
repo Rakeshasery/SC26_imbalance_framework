@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ################################################################################
 # SC26 BATCH RUNNER — Single-Node Full Study
