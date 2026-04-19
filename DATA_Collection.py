@@ -1646,7 +1646,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # BASELINE
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S00_idle_baseline': {
         'name': 'Idle Baseline',
         'description': 'All GPUs idle - baseline power and thermal',
@@ -1662,7 +1661,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # SINGLE GPU ACTIVE (4 variations)
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S01_gpu0_high': {
         'name': 'GPU 0 Only - High Load',
         'description': 'GPU 0 at 90%, others idle',
@@ -1714,7 +1712,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # DUAL GPU ACTIVE (6 combinations: C(4,2))
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S05_gpu01_balanced': {
         'name': 'GPU 0+1 Balanced High',
         'description': 'GPU 0,1 at 85%, others idle',
@@ -1790,7 +1787,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # TRIPLE GPU ACTIVE (4 combinations: C(4,3))
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S11_gpu012_balanced': {
         'name': 'GPU 0+1+2 Balanced',
         'description': 'GPU 0,1,2 at 80%, GPU 3 idle',
@@ -1842,7 +1838,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # ALL 4 GPUs BALANCED (4 load levels)
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S15_all_balanced_max': {
         'name': 'All GPUs Maximum Balanced',
         'description': 'All at 95% - maximum stress test',
@@ -1894,7 +1889,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # ALL 4 GPUs UNBALANCED (4 imbalance patterns)
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S19_all_gradient_ascending': {
         'name': 'All GPUs Gradient Ascending',
         'description': 'GPUs at 25%, 50%, 75%, 95% - load imbalance study',
@@ -1946,7 +1940,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # MEMORY-INTENSIVE SCENARIOS (3 patterns) — NEW for SC26
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S23_memory_heavy_all': {
         'name': 'All GPUs Memory-Heavy',
         'description': 'Low compute (40%), high memory (75GB each)',
@@ -1986,7 +1979,6 @@ PUBLICATION_SCENARIOS = {
     # ═══════════════════════════════════════════════════════════════════════
     # BURST/TRANSIENT SCENARIOS (4 patterns) — NEW for SC26
     # ═══════════════════════════════════════════════════════════════════════
-    
     'S26_burst_pattern_pair': {
         'name': 'Burst Pattern (Pairs)',
         'description': 'GPU 0,1 burst (98%), 2,3 moderate (55%)',
@@ -3277,7 +3269,6 @@ def fit_polynomial_model(X, y, degree=1):
         'bic': bic,
         'r2': r2
     }
-
 
 def test_heteroscedasticity(X, residuals):
     """Breusch-Pagan test for heteroscedasticity."""
