@@ -154,7 +154,7 @@ After running Steps 3 and 4 above, verify these key results:
 | Fig. 2 (scenario overview) | `Multinode/Results_Figure_All_Node/fig2_scenario_overview.png` | 30 scenarios, mean ± 1 std |
 | Fig. 3 (residual analysis) | `Multinode/Results_Figure_All_Node/fig_allnodes_val_03_residuals__ALL_NODES.png` | Homoscedastic, zero-centred residuals (mean=0, SD=0.01386 TFLOPS/W), confirming linear model adequacy |
 | Fig. 4 (cost per TFLOP-hr) | `Multinode/Results_Figure_All_Node/fig_allnodes_econ_01_cost_per_tflop__ALL_NODES.png` | Cost range 627.7–900.8 µ$/TFLOP-hr across workloads; up to 30.3% reduction with decreasing imbalance; Burst-Avg best |
-| Fig. 5 (ROI timeline) | `Multinode/Results_Figure_All_Node/fig_allnodes_econ_04_roi_timeline__ALL_NODES.png` | Payback 14.2–32.6 months across workload categories; up to ~$75k cumulative savings at 36 months |
+| Fig. 5 (ROI timeline) | `Multinode/Results_Figure_All_Node/fig_allnodes_econ_04_roi_timeline__ALL_NODES.png` | Payback 14.2–32.6 months across workload categories; up to ~$42k cumulative savings at 36 months |
 | Fig. 6 (regression lines) | `Multinode/figure_regression_lines_*.png` | 12 per-node lines overlaid |
 | Fig. 7 (per-node R²) | `Multinode/Results_Figure_All_Node/fig7_pernode_r2.png` | Per-node R² and Pearson \|r\| |
 | Table IV | `Multinode/multinode_regression_table_*.tex` | Slope CV ≈ 3.43% across 12 nodes |
