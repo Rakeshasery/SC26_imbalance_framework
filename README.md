@@ -92,9 +92,11 @@ pip install -r requirements.txt
 python Standalone_Mode9.py
 ```
 
-> **Single click:** In any file manager or IDE (VS Code, PyCharm, Spyder),
-> right-click `Standalone_Mode9.py` inside the `SC26_data/` folder and
-> select **"Run"** or **"Execute"**. No arguments or configuration needed.
+> **Single click / single run:** Open `Standalone_Mode9.py` in any Python
+> environment — Spyder (Run → Run File), VS Code (▶ Run Python File),
+> PyCharm (▶ Run), Jupyter (via `%run Standalone_Mode9.py`), or any
+> terminal (`python Standalone_Mode9.py`). No arguments or configuration
+> needed.
 
 What this does:
 - Auto-discovers all 12 node folders inside the current directory
@@ -119,10 +121,12 @@ figure_r2_comparison_*.png
 python Unified_Pipeline.py
 ```
 
-> **Single click:** Right-click `Unified_Pipeline.py` inside the
-> `SC26_data/` folder and select **"Run"** or **"Execute"**. No arguments
-> or configuration needed — it auto-discovers all node folders and the
-> `Multinode/` JSON from A2 automatically.
+> **Single click / single run:** Open `Unified_Pipeline.py` in any Python
+> environment — Spyder (Run → Run File), VS Code (▶ Run Python File),
+> PyCharm (▶ Run), Jupyter (via `%run Unified_Pipeline.py`), or any
+> terminal (`python Unified_Pipeline.py`). No arguments or configuration
+> needed — it auto-discovers all node folders and the `Multinode/` JSON
+> produced by A2 automatically. **Run A2 first.**
 
 What this does:
 - Auto-discovers all node folders and their `S*.csv` files
@@ -148,11 +152,14 @@ After running Steps 3 and 4 above, verify these key results:
 |--------------|-------------|----------------|
 | Fig. 1 (CV scatter) | `Multinode/Results_Figure_All_Node/fig1_cv_scatter.png` | 336 points, 12 colours, pooled regression line |
 | Fig. 2 (scenario overview) | `Multinode/Results_Figure_All_Node/fig2_scenario_overview.png` | 30 scenarios, mean ± 1 std |
+| Fig. 3 (residual analysis) | `Multinode/Results_Figure_All_Node/fig_allnodes_val_03_residuals__ALL_NODES.png` | Homoscedastic, zero-centred residuals (mean=0, SD=0.01386 TFLOPS/W), confirming linear model adequacy |
+| Fig. 4 (cost per TFLOP-hr) | `Multinode/Results_Figure_All_Node/fig_allnodes_econ_01_cost_per_tflop__ALL_NODES.png` | Cost range 627.7–900.8 µ$/TFLOP-hr across workloads; up to 30.3% reduction with decreasing imbalance; Burst-Avg best |
+| Fig. 5 (ROI timeline) | `Multinode/Results_Figure_All_Node/fig_allnodes_econ_04_roi_timeline__ALL_NODES.png` | Payback 14.2–32.6 months across workload categories; up to ~$75k cumulative savings at 36 months |
 | Fig. 6 (regression lines) | `Multinode/figure_regression_lines_*.png` | 12 per-node lines overlaid |
 | Fig. 7 (per-node R²) | `Multinode/Results_Figure_All_Node/fig7_pernode_r2.png` | Per-node R² and Pearson \|r\| |
 | Table IV | `Multinode/multinode_regression_table_*.tex` | Slope CV ≈ 3.43% across 12 nodes |
 | C3 model | `Multinode/Results_Figure_All_Node/all_nodes_validation_results.csv` | R²=0.578, r=−0.760, p=1.55×10⁻⁶⁴, N=336 |
-| C4 ROI | `Multinode/Results_Figure_All_Node/all_nodes_economic_summary.csv` | Payback 14.2 months; 627.7 µ$/TFLOP-hr |
+| C4 ROI | `Multinode/Results_Figure_All_Node/all_nodes_economic_summary.csv` | Shortest payback 14.2 months; best cost 627.7 µ$/TFLOP-hr |
 | All F-tests / t-tests | `Multinode/multinode_statistics_*.json` | p > 0.59 for all 66 pairs |
 
 Minor numerical variations (<0.01%) from the paper values are expected
@@ -271,14 +278,19 @@ python Standalone_Mode9.py --dry-run
 
 ## A3 — Execution Options
 
+> **Note:** A3 requires A2 to have been run first. Specifically, Step 4
+> (`multinode`) reads `Multinode/multinode_validation_*.json` produced by A2.
+> Running the full pipeline without this file will skip Step 4 and omit
+> Table IV and cross-node figures (Fig. 6). Always run A2 before A3.
+
 ```bash
-# Full pipeline, auto-discover all nodes (recommended):
+# Full pipeline, auto-discover all nodes (recommended — run A2 first):
 python Unified_Pipeline.py
 
 # Specific steps only:
 python Unified_Pipeline.py --steps metrics,validate
 
-# Pooled analysis only (Steps 5–7):
+# Pooled analysis only (Steps 5–7, does not need A2 outputs):
 python Unified_Pipeline.py --steps all_metrics,all_validate,all_economic
 
 # Single node only:
@@ -290,7 +302,7 @@ python Unified_Pipeline.py --node_names <node1> <node2> <node3>
 # Custom data directory:
 python Unified_Pipeline.py --base_data_dir /path/to/SC26_data
 
-# Multinode step only (requires A2 outputs in Multinode/):
+# Multinode step only (requires A2 outputs — Multinode/multinode_validation_*.json must exist):
 python Unified_Pipeline.py --steps multinode
 ```
 
