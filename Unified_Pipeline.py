@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ================================================================================
 SC26 UNIFIED ANALYSIS PIPELINE  —  Generalised Version
@@ -10,11 +9,10 @@ Combines four scripts into one ordered pipeline:
   STEP 3 → economic_analysis         : Facility-level TCO & ROI analysis
   STEP 4 → Multinode_cross_validation: Multi-node cross-validation across all nodes
 
-All three per-node scripts (Steps 1–3) are generalised after the pattern of
-Multinode_cross_validation_analysis.py:
+All three per-node scripts (Steps 1–3) are generalised:
   • Auto-discover nodes via --node_names (comma-separated) or --auto_discover
-  • Use the canonical BASE_RESULTS_DIR / Multinode path from the reference script
-  • All outputs saved to BASE_RESULTS_DIR/Results_Figure/<node_name>/
+  • Use the canonical SC26_data / Multinode path from the reference script
+  • All outputs saved to SC26_data/Results_Figure/<node_name>/
   • All figure font sizes = 14, bold, distinct colours within each figure
 
 Usage:
@@ -30,7 +28,7 @@ Usage:
     # Override data directory:
     python Unified_Pipeline.py --base_data_dir /custom/path
 
-Output (per node, saved to BASE_RESULTS_DIR/Results_Figure/<node>/):
+Output (per node, saved to SC26_data/Results_Figure/<node>/):
     scenario_summary_<node>.csv
     paper_metrics_summary_<node>.json
     latex_tables_<node>.tex
@@ -40,7 +38,7 @@ Output (per node, saved to BASE_RESULTS_DIR/Results_Figure/<node>/):
     economic_summary__<node>.csv
     fig_econ_01..04__<node>.png
 
-Output (multinode, saved to MULTINODE_DIR):
+Output (multinode, saved to Multinode):
     multinode_analysis_report_<ts>.txt
     multinode_statistics_<ts>.json
     multinode_regression_table_<ts>.tex
@@ -53,7 +51,7 @@ ADD-ON STEPS (all-nodes pooled/averaged analysis):
   STEP 6 → all_validate : Cross-node pooled predictive model validation
   STEP 7 → all_economic : Cross-node averaged economic analysis
 
-Output (all-nodes, saved to BASE_RESULTS_DIR/Results_Figure/ALL_NODES/):
+Output (all-nodes, saved to SC26_data/Multinode/Results_Figure_All_Node/):
     all_nodes_scenario_summary.csv
     all_nodes_paper_metrics_summary.json
     all_nodes_latex_tables.tex
@@ -118,12 +116,8 @@ except ImportError:
     SEABORN_AVAILABLE = False
 
 # ══════════════════════════════════════════════════════════════════════════════
-# GLOBAL CONFIGURATION  (canonical paths from Multinode_cross_validation_analysis.py)
+# GLOBAL CONFIGURATION
 # ══════════════════════════════════════════════════════════════════════════════
-# Self-locate: the script lives inside the study directory.
-# BASE_RESULTS_DIR and BASE_DATA_DIR are the SAME folder — the one containing
-# both the per-node subfolders (with S*.csv files) and the Multinode/ subfolder.
-# Running `python Unified_Pipeline.py` from anywhere will work automatically.
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_RESULTS_DIR = _SCRIPT_DIR
 BASE_DATA_DIR    = _SCRIPT_DIR          # same directory — node CSVs are here too
