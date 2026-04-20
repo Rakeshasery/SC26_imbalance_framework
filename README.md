@@ -9,7 +9,7 @@ Artifact repository for the SC26 2026 paper:
 
 > **Artifact A1 (`DATA_Collection.py` + `RUN_Batch.py`) does NOT need to be
 > executed during evaluation.** It requires specialised GPU hardware and
-> approximately 45–55 hours of wall-clock time per full batch. Hardware
+> approximately 45–55 hours of wall-clock time per full batch for each node. Hardware
 > configuration details are withheld in accordance with SC26 double-anonymous
 > review guidelines and will be disclosed upon paper acceptance.
 >
