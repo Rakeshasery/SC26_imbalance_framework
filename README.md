@@ -205,8 +205,22 @@ The `SC26_data/` folder contains GPU telemetry collected from 12 nodes
 - JSON side-files: rebalancing summaries, statistical validation,
   economic projections
 
-Hardware configuration details are withheld during double-anonymous
-review and will be disclosed upon paper acceptance.
+### Hardware used for data collection (A1)
+
+| Property | Specification |
+|----------|--------------|
+| GPU model | NVIDIA A100 80 GB (SXM4) |
+| GPUs per node | 4 |
+| Total nodes | 12 (two rack groups of 6 nodes each) |
+| Total GPUs | 48 |
+| GPU interconnect | NVLink |
+| CUDA version | 12.x |
+| NVIDIA driver | 535+ |
+| Sampling rate | 10 Hz via NVML |
+| GPU mode | Exclusive-process |
+
+Cluster name and institutional details are withheld during
+double-anonymous review and will be disclosed upon paper acceptance.
 
 **Download:** DOI `TBD` *(withheld for double-anonymous review)*
 
@@ -320,10 +334,23 @@ They are fully functional scripts that can be used to collect new
 telemetry on any compatible NVIDIA GPU cluster.
 
 **Do not run during artifact evaluation** because:
-- Requires NVIDIA data-centre GPUs (A100/H100 or equivalent)
+- Requires NVIDIA A100 80 GB GPUs (or equivalent data-centre GPU)
 - Takes approximately 45–55 hours per full batch on a single node
 - Requires 12 nodes for full replication of the paper results
-- Hardware configuration details withheld during double-anonymous review
+- Cluster name and institutional details withheld during double-anonymous review
+
+### Minimum hardware to run A1 on a new cluster
+
+| Requirement | Minimum | Full replication |
+|-------------|---------|-----------------|
+| GPU model | Any NVIDIA A100 / H100 (or equivalent) | NVIDIA A100 80 GB |
+| GPUs per node | 2 | 4 |
+| Nodes | 1 | 12 |
+| Interconnect | PCIe | NVLink |
+| GPU mode | Exclusive-process | Exclusive-process |
+| OS | Linux | Linux |
+| CUDA | 12.x | 12.x |
+| Driver | 535+ | 535+ |
 
 ### A1 key modes (for reference)
 
