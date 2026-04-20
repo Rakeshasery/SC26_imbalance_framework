@@ -9,14 +9,12 @@ Artifact repository for the SC26 2026 paper:
 
 > **Artifact A1 (`DATA_Collection.py` + `RUN_Batch.py`) does NOT need to be
 > executed during evaluation.** It requires specialised GPU hardware and
-> approximately 45–55 hours of wall-clock time per full batch for each node.
-> GPU and hardware specifications used for data collection are provided in the
-> **Hardware used for data collection (A1)** table below. Cluster name and
-> institutional details are withheld in accordance with SC26 double-anonymous
+> approximately 45–55 hours of wall-clock time per full batch for each node. Hardware
+> configuration details are withheld in accordance with SC26 double-anonymous
 > review guidelines and will be disclosed upon paper acceptance.
 >
 > The complete pre-collected dataset `SC26_data.zip` produced by A1 is provided separately
-> (see **Pre-collected Dataset** section below). Reviewers could download
+> (see **Pre-collected Dataset** section below). Reviewers should download
 > this dataset and execute **only A2 and A3**, which are CPU-only and
 > complete in approximately **10–20 minutes total**.
 >
@@ -49,10 +47,16 @@ Logical pipeline: A1 → A2 → A3.
 
 ### Step 1 — Download and set up in one folder (~3 min)
 
-Download `SC26_data.zip` from:
+Download `SC26_data.zip` from Zenodo:
 
-> **Dataset DOI:** `TBD` *(withheld for double-anonymous review)*
-> Direct link: `[Zenodo restricted share link — provided in AD appendix]`
+> **Dataset DOI:** `[10.5281/zenodo.19658531](https://doi.org/10.5281/zenodo.19658531)`
+>
+> **Direct reviewer download link (restricted access):**
+> ```
+> https://zenodo.org/records/19658531?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc3NjY2OTgwMywiZXhwIjoxNzk1MTMyNzk5fQ.eyJpZCI6ImE2M2ZjYjJlLWU0ZGMtNGJkNC05NzNiLTkwMmIzMjJjZjNiNCIsImRhdGEiOnt9LCJyYW5kb20iOiI3MGY3ZGMwN2RlN2ZkM2U3MDM5MjFlMDcwZGJlNGVjYiJ9.znISe7p9g-OQSB20Mlm8ElMrQbUsE_nAXiukTRIQeKPSYPKwy_paarqkkfVnJtySpjbvDz_IInGi2ACbaIXvNg
+> ```
+> Click the link above → the Zenodo page opens → click **Download** next to `SC26_data.zip`.
+> No Zenodo account needed.
 
 Unzip it:
 
@@ -207,24 +211,10 @@ The `SC26_data/` folder contains GPU telemetry collected from 12 nodes
 - JSON side-files: rebalancing summaries, statistical validation,
   economic projections
 
-### Hardware used for data collection (A1)
+Hardware configuration details are withheld during double-anonymous
+review and will be disclosed upon paper acceptance.
 
-| Property | Specification |
-|----------|--------------|
-| GPU model | NVIDIA A100 80 GB (SXM4) |
-| GPUs per node | 4 |
-| Total nodes | 12 (two rack groups of 6 nodes each) |
-| Total GPUs | 48 |
-| GPU interconnect | NVLink |
-| CUDA version | 12.x |
-| NVIDIA driver | 535+ |
-| Sampling rate | 10 Hz via NVML |
-| GPU mode | Exclusive-process |
-
-Cluster name and institutional details are withheld during
-double-anonymous review and will be disclosed upon paper acceptance.
-
-**Download:** DOI `TBD` *(withheld for double-anonymous review)*
+**Download:** DOI `10.5281/zenodo.19658531` — use the reviewer download link at the top of the Quick Start section above.
 
 ---
 
@@ -336,23 +326,10 @@ They are fully functional scripts that can be used to collect new
 telemetry on any compatible NVIDIA GPU cluster.
 
 **Do not run during artifact evaluation** because:
-- Requires NVIDIA A100 80 GB GPUs (or equivalent data-centre GPU)
+- Requires NVIDIA data-centre GPUs (A100/H100 or equivalent)
 - Takes approximately 45–55 hours per full batch on a single node
 - Requires 12 nodes for full replication of the paper results
-- Cluster name and institutional details withheld during double-anonymous review
-
-### Minimum hardware to run A1 on a new cluster
-
-| Requirement | Minimum | Full replication |
-|-------------|---------|-----------------|
-| GPU model | Any NVIDIA A100 / H100 (or equivalent) | NVIDIA A100 80 GB |
-| GPUs per node | 2 | 4 |
-| Nodes | 1 | 12 |
-| Interconnect | PCIe | NVLink |
-| GPU mode | Exclusive-process | Exclusive-process |
-| OS | Linux | Linux |
-| CUDA | 12.x | 12.x |
-| Driver | 535+ | 535+ |
+- Hardware configuration details withheld during double-anonymous review
 
 ### A1 key modes (for reference)
 
