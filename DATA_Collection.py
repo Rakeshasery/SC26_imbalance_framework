@@ -102,7 +102,8 @@
 # ⚠ Runtime overhead: CV computation < 0.1ms per sample; NVML polling
 #   adds ~2ms overhead per GPU. Total: <1% of job runtime for 10s intervals.
 #
-# ⚠ Generalizability: GPUXXXX focus; CV-efficiency relationship validated on
+# ⚠ Generalizability: A100 focus; CV-efficiency relationship validated on
+#   2 nodes (Step 2). H100/V100 expected to show same pattern (same SM arch).
 #
 # ═══════════════════════════════════════════════════════════════════════════
 # USAGE
@@ -196,23 +197,23 @@ DURATION_CONFIG = {
     'scenario_buffer': 120,          # 2 minute safety buffer
 }
 
-# ── GPU Architecture Database (GPUXXXX focus) ───────────────────────────────────
+# ── GPU Architecture Database (A100 focus) ───────────────────────────────────
 GPU_ARCHITECTURES = {
-    'GPUXXXX-SXM4-80GB': {
+    'A100-SXM4-80GB': {
         'sm_count': 108,
         'fp32_tflops': 19.5,
         'fp64_tflops': 9.7,
         'memory_bandwidth_gbps': 2039,
         'memory_size_gb': 80
     },
-    'GPUXXXX-SXM4-40GB': {
+    'A100-SXM4-40GB': {
         'sm_count': 108,
         'fp32_tflops': 19.5,
         'fp64_tflops': 9.7,
         'memory_bandwidth_gbps': 1555,
         'memory_size_gb': 40
     },
-    'GPUXXXX-PCIE-40GB': {
+    'A100-PCIE-40GB': {
         'sm_count': 108,
         'fp32_tflops': 19.5,
         'fp64_tflops': 9.7,
@@ -1209,8 +1210,8 @@ class GPUMetricsLogger:
                     break
 
             if specs is None:
-                print(f"  GPU {i}: {name} → using GPUXXXX-80GB defaults")
-                specs = GPU_ARCHITECTURES['GPUXXXX-SXM4-80GB']
+                print(f"  GPU {i}: {name} → using A100-80GB defaults")
+                specs = GPU_ARCHITECTURES['A100-SXM4-80GB']
             
             gpu_specs.append(specs)
         return gpu_specs
@@ -1310,7 +1311,7 @@ class GPUMetricsLogger:
             metrics['power_util_%'] = (
                 (metrics['power_w'] / power_limit * 100) if power_limit > 0 else 0)
         except Exception:
-            metrics['power_limit_w'] = 400  # GPUXXXX default
+            metrics['power_limit_w'] = 400  # A100 default
             metrics['power_util_%'] = 0
 
         # Clock frequencies
@@ -1326,7 +1327,7 @@ class GPUMetricsLogger:
         except Exception:
             metrics['sm_clock_mhz'] = 0
             metrics['memory_clock_mhz'] = 0
-            metrics['max_sm_clock_mhz'] = 1410  # GPUXXXX max
+            metrics['max_sm_clock_mhz'] = 1410  # A100 max
             metrics['clock_efficiency_%'] = 0
 
         # Proxy TFLOPS calculation (util × clock efficiency)
@@ -1345,7 +1346,7 @@ class GPUMetricsLogger:
             proxy_actual_tflops, metrics['power_w'])
         
         # Energy efficiency score (0-100 scale)
-        max_eff = 0.05  # ~0.05 TFLOPS/W is excellent for GPUXXXX
+        max_eff = 0.05  # ~0.05 TFLOPS/W is excellent for A100
         metrics['energy_efficiency_score'] = min(
             metrics['proxy_tflops_per_watt'] / max_eff * 100, 100)
 
