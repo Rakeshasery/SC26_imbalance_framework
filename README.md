@@ -13,7 +13,7 @@ Artifact repository for the SC26 2026 paper:
 > configuration details are withheld in accordance with SC26 double-anonymous
 > review guidelines and will be disclosed upon paper acceptance.
 >
-> The complete pre-collected dataset produced by A1 is provided separately
+> The complete pre-collected dataset `SC26_data.zip` produced by A1 is provided separately
 > (see **Pre-collected Dataset** section below). Reviewers should download
 > this dataset and execute **only A2 and A3**, which are CPU-only and
 > complete in approximately **10–20 minutes total**.
