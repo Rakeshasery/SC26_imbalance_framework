@@ -47,14 +47,12 @@ Logical pipeline: A1 → A2 → A3.
 
 ### Step 1 — Download and set up in one folder (~3 min)
 
-**Dataset DOI:** [10.5281/zenodo.19658531](https://doi.org/10.5281/zenodo.19658531)
+Download `SC26_data.zip` from Zenodo:
 
-**Direct reviewer download link (restricted access — click to download):**
-
-[https://zenodo.org/records/19658531?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc3NjY2OTgwMywiZXhwIjoxNzk1MTMyNzk5fQ.eyJpZCI6ImE2M2ZjYjJlLWU0ZGMtNGJkNC05NzNiLTkwMmIzMjJjZjNiNCIsImRhdGEiOnt9LCJyYW5kb20iOiI3MGY3ZGMwN2RlN2ZkM2U3MDM5MjFlMDcwZGJlNGVjYiJ9.znISe7p9g-OQSB20Mlm8ElMrQbUsE_nAXiukTRIQeKPSYPKwy_paarqkkfVnJtySpjbvDz_IInGi2ACbaIXvNg](https://zenodo.org/records/19658531?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc3NjY2OTgwMywiZXhwIjoxNzk1MTMyNzk5fQ.eyJpZCI6ImE2M2ZjYjJlLWU0ZGMtNGJkNC05NzNiLTkwMmIzMjJjZjNiNCIsImRhdGEiOnt9LCJyYW5kb20iOiI3MGY3ZGMwN2RlN2ZkM2U3MDM5MjFlMDcwZGJlNGVjYiJ9.znISe7p9g-OQSB20Mlm8ElMrQbUsE_nAXiukTRIQeKPSYPKwy_paarqkkfVnJtySpjbvDz_IInGi2ACbaIXvNg)
-
-> Click the link above → Zenodo page opens → click **Download** next to `SC26_data.zip`.
-> No Zenodo account needed.
+> **Dataset DOI:** [10.5281/zenodo.19658530](https://doi.org/10.5281/zenodo.19658530)
+>
+> Click the DOI link above → Zenodo page opens → click
+> **Download** next to `SC26_data.zip`. No account needed.
 
 Unzip it:
 
@@ -212,7 +210,7 @@ The `SC26_data/` folder contains GPU telemetry collected from 12 nodes
 Hardware configuration details are withheld during double-anonymous
 review and will be disclosed upon paper acceptance.
 
-**Download:** [10.5281/zenodo.19658531](https://doi.org/10.5281/zenodo.19658531) — use the reviewer download link in the Quick Start section above.
+**Download:** [https://doi.org/10.5281/zenodo.19658530](https://doi.org/10.5281/zenodo.19658530)
 
 ---
 
@@ -398,6 +396,6 @@ MIT License. See `LICENSE` for details.
                High Performance Computing, Networking, Storage
                and Analysis (SC26)},
   year      = {2026},
-  doi       = {10.5281/zenodo.19658531}
+  doi       = {10.5281/zenodo.19658530}
 }
 ```
