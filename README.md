@@ -49,7 +49,7 @@ Logical pipeline: A1 → A2 → A3.
 
 Download `SC26_data.zip` from Zenodo:
 
-> **Dataset DOI:** `[10.5281/zenodo.19658531](https://doi.org/10.5281/zenodo.19658531)`
+> **Dataset DOI:** `[10.5281/zenodo.19658531]([https://doi.org/10.5281/zenodo.19658531])`
 >
 > **Direct reviewer download link (restricted access):**
 > ```
